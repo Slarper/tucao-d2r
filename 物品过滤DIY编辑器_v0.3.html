@@ -1,0 +1,588 @@
+<html>
+    <head>
+        
+        <style>
+            table{
+                width: auto;
+            }
+            table,th,td{
+                border:1px solid white;
+                border-collapse: collapse;
+                text-align: center;
+            }
+            input[type=checkbox]{
+                transform: scale(1.5);
+            }
+            .float{
+                width: fit-content;
+                height: fit-content;
+                position: fixed !important;
+                position: absolute;
+                z-index: 5;
+                background-color: #2C3539;
+                color: white;
+                padding: 10px;
+                border: white 2px solid;
+            }
+           
+            
+        </style>
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+        </script>
+        <script>
+            /*
+                item{
+                    id:num
+                    Key
+                    enUS
+                    zhTW
+                    zhCN
+                    .....
+                }
+            */
+            let tableColor=[]; //颜色表
+            tableColor['ÿc0']='#ffffff';
+            tableColor['ÿc1']='#ff5656';
+            tableColor['ÿc2']='#00ff00';
+            tableColor['ÿc3']='#7a7aff';
+            tableColor['ÿc4']='#d1bd7e';
+            tableColor['ÿc5']='#767676';
+            tableColor['ÿc6']='#000000';
+            tableColor['ÿc7']='#d9c985';
+            tableColor['ÿc8']='#ffb100';
+            tableColor['ÿc9']='#ffff64';
+            tableColor['ÿc:']='#009300';
+            tableColor['ÿc;']='#c300ff';
+            tableColor['ÿc?']='#ffff64';
+            tableColor['ÿc@']='#ffb100';
+            tableColor['ÿc<']='#00d700';
+            tableColor['ÿc=']='#f3f3f3';
+            tableColor['ÿc>']='#d1bd7e';
+            tableColor['ÿcA']='#009300';
+            tableColor['ÿcB']='#7a7aff';
+            tableColor['ÿcC']='#00ff00';
+            tableColor['ÿcD']='#d1bd7e';
+            tableColor['ÿcE']='#f3f3f3';
+            tableColor['ÿcF']='#f3f3f3';
+            tableColor['ÿcG']='#000000';
+            tableColor['ÿcH']='#899b9d';
+            tableColor['ÿcI']='#b7bfff';
+            tableColor['ÿcJ']='#ffb100';
+            tableColor['ÿcK']='#707070';
+            tableColor['ÿcL']='#ffb100';
+            tableColor['ÿcN']='#00b5eb';
+            tableColor['ÿcO']='#ff89ff';
+            tableColor['ÿcP']='#b3b3ff';
+            tableColor['ÿcQ']='#00ff00';
+            tableColor['ÿcR']='#ffff78';
+            tableColor['ÿcS']='#e14848';
+            tableColor['ÿcT']='#8bcdff';
+            tableColor['ÿcU']='#ff0000';
+            //全局对象，存贮json转化来的对象
+            let names = [];
+            //所有显示的物品keys列表，除此之外的set unique rare npc 字符串无需编辑
+            let equipKeyStr=
+            //以下是基础物品类key
+             "cap;xap;uap;skp;xkp;ukp;hlm;xlm;ulm;fhl;"
+            +"xhl;uhl;ghm;xhm;uhm;crn;xrn;urn;msk;xsk;"
+            +"usk;bhm;xh9;uh9;ci0;ci1;ci2;ci3;qui;xui;"
+            +"uui;lea;xea;uea;hla;xla;ula;stu;xtu;utu;"
+            +"rng;xng;ung;scl;xcl;ucl;chn;xhn;uhn;brs;"
+            +"xrs;urs;spl;xpl;upl;plt;xlt;ult;fld;xld;"
+            +"uld;gth;xth;uth;ful;xul;uul;aar;xar;uar;"
+            +"ltp;xtp;utp;buc;xuc;uuc;sml;xml;uml;lrg;"
+            +"xrg;urg;kit;xit;uit;tow;xow;uow;gts;xts;"
+            +"uts;bsh;xsh;ush;spk;xpk;upk;lgl;xlg;ulg;"
+            +"vgl;xvg;uvg;mgl;xmg;umg;tgl;xtg;utg;hgl;"
+            +"xhg;uhg;lbt;xlb;ulb;vbt;xvb;uvb;mbt;xmb;"
+            +"umb;tbt;xtb;utb;hbt;xhb;uhb;lbl;zlb;ulc;"
+            +"vbl;zvb;uvc;mbl;zmb;umc;tbl;ztb;utc;hbl;"
+            +"zhb;uhc;dr1;dr6;drb;dr2;dr7;drc;dr3;dr8;"
+            +"drd;dr4;dr9;dre;dr5;dra;drf;ba1;ba6;bab;"
+            +"ba2;ba7;bac;ba3;ba8;bad;ba4;ba9;bae;ba5;"
+            +"baa;baf;pa1;pa6;pab;pa2;pa7;pac;pa3;pa8;"
+            +"pad;pa4;pa9;pae;pa5;paa;paf;ne1;ne6;neb;"
+            +"ne2;ne7;nec;ne3;ne8;ned;ne4;ne9;nee;ne5;"
+            +"nea;nef;hax;9ha;7ha;axe;9ax;7ax;2ax;92a;"
+            +"72a;mpi;9mp;7mp;wax;9wa;7wa;lax;9la;7la;"
+            +"bax;9ba;7ba;btx;9bt;7bt;gax;9ga;7ga;gix;"
+            +"9gi;7gi;clb;9cl;7cl;spc;9sp;7sp;mac;9ma;"
+            +"7ma;mst;9mt;7mt;fla;9fl;7fl;whm;9wh;7wh;"
+            +"mau;9m9;7m7;gma;9gm;7gm;ssd;9ss;7ss;scm;"
+            +"9sm;7sm;sbr;9sb;7sb;flc;9fc;7fc;crs;9cr;"
+            +"7cr;bsd;9bs;7bs;lsd;9ls;7ls;wsd;9wd;7wd;"
+            +"2hs;92h;72h;clm;9cm;7cm;gis;9gs;7gs;bsw;"
+            +"9b9;7b7;flb;9fb;7fb;gsd;9gd;7gd;dgr;9dg;"
+            +"7dg;dir;9di;7di;kri;9kr;7kr;bld;9bl;7bl;"
+            +"tkf;9tk;7tk;tax;9ta;7ta;bkf;9bk;7bk;bal;"
+            +"9b8;7b8;jav;9ja;7ja;pil;9pi;7pi;ssp;9s9;"
+            +"7s7;glv;9gl;7gl;tsp;9ts;7ts;spr;9sr;7sr;"
+            +"tri;9tr;7tr;brn;9br;7br;spt;9st;7st;pik;"
+            +"9p9;7p7;bar;9b7;7o7;vou;9vo;7vo;scy;9s8;"
+            +"7s8;pax;9pa;7pa;hal;9h9;7h7;wsc;9wc;7wc;"
+            +"sbw;8sb;6sb;hbw;8hb;6hb;lbw;8lb;6lb;cbw;"
+            +"8cb;6cb;sbb;8s8;6s7;lbb;8l8;6l7;swb;8sw;"
+            +"6sw;lwb;8lw;6lw;lxb;8lx;6lx;mxb;8mx;6mx;"
+            +"hxb;8hx;6hx;rxb;8rx;6rx;sst;8ss;6ss;lst;"
+            +"8ls;6ls;cst;8cs;6cs;bst;8bs;6bs;wst;8ws;"
+            +"6ws;wnd;9wn;7wn;ywn;9yw;7yw;bwn;9bw;7bw;"
+            +"gwn;9gw;7gw;scp;9sc;7sc;gsc;9qs;7qs;wsp;"
+            +"9ws;7ws;ktr;9ar;7ar;wrb;9wb;7wb;axf;9xf;"
+            +"7xf;ces;9cs;7cs;clw;9lw;7lw;btl;9tw;7tw;"
+            +"skr;9qr;7qr;ob1;ob6;obb;ob2;ob7;obc;ob3;"
+            +"ob8;obd;ob4;ob9;obe;ob5;oba;obf;am1;am6;"
+            +"amb;am2;am7;amc;am3;am8;amd;am4;am9;ame;"
+            +"am5;ama;amf;amu;rin;jew;cm1;cm2;cm3;";
+            //杂物类key
+            let otherKeyStr=
+             "gpl;opl;gpm;opm;gps;ops;tsc;isc;vps;yps;"
+            +"rvs;rvl;wms;aqv;cqv;key;gcv;gfv;"
+            +"gsv;gzv;gpv;gcy;gfy;gsy;gly;gpy;gcb;gfb;"
+            +"gsb;glb;gpb;gcg;gfg;gsg;glg;gpg;gcr;gfr;"
+            +"gsr;glr;gpr;gcw;gfw;gsw;glw;gpw;hp1;hp2;"
+            +"hp3;hp4;hp5;mp1;mp2;mp3;mp4;mp5;skc;skf;"
+            +"sku;skl;skz;gld;";
+            let equipKeys= equipKeyStr.split(";");
+            let otherKeys= otherKeyStr.split(";");
+
+            //标准屏蔽加大蓝
+            let planStdManaStr=
+              "cap;skp;hlm;fhl;ghm;crn;msk;qui;lea;hla;"
+             +"rng;scl;chn;brs;spl;plt;fld;gth;ful;aar;"
+             +"ltp;buc;sml;lrg;kit;tow;gts;vbl;mbl;bhm;"
+             +"bsh;spk;hax;axe;mpi;wax;lax;bax;btx;gax;"
+             +"gix;wnd;ywn;clb;scp;gsc;spc;mac;mst;whm;"
+             +"mau;gma;ssd;scm;sbr;flc;bsd;lsd;wsd;2hs;"
+             +"clm;gis;bsw;flb;gsd;dgr;dir;kri;bld;tkf;"
+             +"tax;bkf;bal;jav;ssp;glv;spr;tri;brn;spt;"
+             +"pik;bar;vou;pax;wsc;sst;lst;cst;bst;wst;"
+             +"sbw;hbw;cbw;sbb;lbb;swb;lwb;lxb;mxb;hxb;"
+             +"rxb;xpk;xts;xow;xit;xrg;xml;xuc;xth;xld;"
+             +"xcl;xng;xtu;xla;xui;xlm;8rx;8mx;8lx;8sw;"
+             +"8l8;8s8;8cb;8lb;8hb;8sb;8ws;8bs;8cs;8ls;"
+             +"8ss;9wc;9h9;9pa;9s8;9vo;9b7;9p9;9br;9sr;"
+             +"9gl;9s9;9ja;9bk;9ta;9tk;9kr;9di;9dg;9gd;"
+             +"9gs;9cm;92h;9wd;9ls;9cr;9sb;9ss;9gm;9m9;"
+             +"9wh;9fl;9ma;9sp;9qs;9sc;9cl;9gi;9ga;9bt;"
+             +"9ba;9la;9wa;9mp;92a;9ax;9ha;9b9;gpl;opl;"
+             +"gpm;opm;gps;ops;vps;wms;cqv;Key;key;hp1;"
+             +"hp2;hp3;hp4;mp1;mp2;mp3;mp4;9bl;am1;am2;"
+             +"am3;am4;am5;am6;am7;am8;am9;pa1;pa2;pa3;"
+             +"pa4;pa5;9b8;";
+            let strMoreBan="tsc;isc;aqv;mp5;"   //这里是标准屏蔽比打开大蓝多屏蔽的部分，即大蓝等
+            let planStdStr = planStdManaStr+strMoreBan;
+            let planStdKeys =planStdStr.split(";");
+            let planStdManaKeys =planStdManaStr.split(";");
+            //物品的价值信息
+            let valuableKeys={
+                'xap':'牛魔王套','uap':'绿帽子','xkp':'岩石制动器',
+                'ukp':'精英级','ulm':'精英级','xhl':'沙撒璧套',
+                'uhl':'精英级','xhm':'女神头','uhm':'冰头',
+                'xrn':'盗贼头','urn':'年纪头','xsk':'塔拉夏套',
+                'usk':'安头','xh9':'物免盔','uh9':'塔格奥套',
+                'ci0':'rare','ci1':'rare','ci2':'rare',
+                'ci3':'格力风之眼','uui':'奥马斯长袍','xea':'蛇皮',
+                'uea':'底材','ula':'底材','stu':'牛魔王套',
+                'utu':'斗士的禍根','ung':'底材','ucl':'娜塔亚套',
+                'xhn':'物免甲','uhn':'底材','xrs':'督瑞尔的壳',
+                'urs':'底材','xpl':'诗寇蒂的愤怒','upl':'底材',
+                'xlt':'守护天使','ult':'底材','uld':'海王利维亚桑',
+                'uth':'底材','xul':'塔格奥套','uul':'底材',
+                'xar':'格瑞斯华尔德套','uar':'底材','xtp':'魁黑刚的智慧',
+                'utp':'底材','uuc':'精英级','uml':'精英级','urg':'精英级',
+                'uit':'暴风之盾','uow':'精英级','uts':'精英级',
+                'xsh':'警戒之墙','ush':'精英级','upk':'精英级',
+                'lgl':'rare','xlg':'rare','ulg':'安手','vgl':'rare',
+                'xvg':'合成材料','uvg':'卓古拉','mgl':'幸运守护',
+                'xmg':'合成材料','umg':'合成材料','tgl':'法师之拳',
+                'xtg':'马维娜套','utg':'rare','hgl':'霜燃','xhg':'不朽之王',
+                'uhg':'碎钢','lbt':'rare','xlb':'地狱阔步','ulb':'rare',
+                'vbt':'牛魔王套','xvb':'水上漂','uvb':'沙暴之旅',
+                'mbt':'rare','xmb':'纱织','umb':'骨髓行走','tbt':'妖精脚趾',
+                'xtb':'战争之旅','utb':'rare','hbt':'rare','xhb':'蚀肉骑士',
+                'uhb':'rare','lbl':'死神套','zlb':'09物免腰带',
+                'ulc':'技能腰带','zvb':'穿刺腰带','uvc':'吸血圣王之圈',
+                'zmb':'塔拉夏套','umc':'10物免腰带','tbl':'金色包袱',
+                'ztb':'雪之冲突','utc':'塔格奥套','hbl':'rare','zhb':'雷神之力',
+                'uhc':'精英级','dr1':'dru头','dr6':'dru头','drb':'精英级',
+                'dr2':'dru头','dr7':'dru头','drc':'精英级','dr3':'dru头',
+                'dr8':'艾尔多套','drd':'精英级','dr4':'dru头','dr9':'dru头',
+                'dre':'dru头','dr5':'dru头','dra':'加尔的长发','drf':'精英级',
+                'ba1':'bar头','ba6':'bar头','bab':'bar头','ba2':'bar头',
+                'ba7':'bar头','bac':'变狼头','ba3':'bar头','ba8':'bar头',
+                'bad':'bar头','ba4':'bar头','ba9':'bar头','bae':'bar头',
+                'ba5':'不朽之王套','baa':'bbface','baf':'精英级',
+                'pab':'底材','pac':'底材','pad':'底材','pa9':'撒卡蘭姆使者',
+                'pae':'底材','paa':'底材','paf':'底材','ne1':'rare',
+                'ne6':'rare','neb':'rare','ne2':'rare','ne7':'rare',
+                'nec':'rare','ne3':'rare','ne8':'rare','ned':'rare',
+                'ne4':'rare','ne9':'塔格奥套','nee':'女妖','ne5':'rare',
+                'nea':'侏儒','nef':'血王之骨','7ha':'精英级','7ax':'精英级',
+                '72a':'精英级','7mp':'精英级','7wa':'底材','7la':'精英级',
+                '7ba':'精英级','7bt':'精英级','7ga':'精英级','7gi':'精英级',
+                '7cl':'精英级','7sp':'精英级','7ma':'精英级','9mt':'艾尔多套',
+                '7mt':'精英级','fla':'底材','7fl':'暴风之结','7wh':'精英级',
+                '7m7':'不朽之王','7gm':'精英级','7ss':'精英级','9sm':'冰刚之眼',
+                '7sm':'精英级','7sb':'精英级','9fc':'ALI88','7fc':'精英级',
+                'crs':'底材','7cr':'底材','9bs':'擊頭者','7bs':'精英级',
+                '7ls':'精英级','7wd':'布尔凯锁套','72h':'精英级','7cm':'精英级',
+                '7gs':'精英级','7b7':'冠軍之劍','9fb':'底材','7fb':'底材',
+                '7gd':'祖父','7dg':'小刀','7di':'精英级','7kr':'精英级','7bl':'精英级',
+                '7tk':'精英级','7ta':'精英级','7bk':'精英级','7b8':'精英级',
+                '7ja':'精英级','pil':'3BO','7pi':'精英级','7s7':'精英级',
+                '7gl':'鬼魂尖枪','tsp':'3BO','7ts':'精英级','7sr':'爱里欧克之针',
+                '9tr':'减速X','7tr':'精英级','7br':'精英级','9st':'宏森丹',
+                '7st':'底材','7p7':'底材','7o7':'破骨','7vo':'底材','7s8':'死神的丧钟',
+                '7pa':'盗墓者','hal':'烦恼诗集','7h7':'底材','7wc':'底材',
+                '6sb':'精英级','6hb':'精英级','lbw':'鸟弓','6lb':'底材','6cb':'底材',
+                '6s7':'精英级','6l7':'精英级','6sw':'弑夫刃','8lw':'金擊圓弧',
+                '6lw':'风之力','6lx':'精英级','6mx':'精英级','8hx':'大炮','6hx':'精英级',
+                '6rx':'精英级','6ss':'精英级','6ls':'精英级','6cs':'TP仗','6bs':'精英级',
+                '6ws':'梅格之歌的教训','9wn':'rare','7wn':'rare','9yw':'rare',
+                '7yw':'rare','bwn':'底材','9bw':'李奥瑞克王','7bw':'巫妖',
+                'gwn':'底材','9gw':'rare','7gw':'死亡之网','7sc':'天堂之光',
+                '7qs':'精英级','wsp':'底材','9ws':'底材','7ws':'底材',
+                'ktr':'冷静/AR爪','9ar':'冷静/AR爪','7ar':'底材','wrb':'冷静/AR爪',
+                '9wb':'冷静/AR爪','7wb':'精英级','axf':'冷静/AR爪','9xf':'冷静/AR爪',
+                '7xf':'精英级','ces':'冷静/AR爪','9cs':'冷静/AR爪','7cs':'精英级',
+                'clw':'冷静/AR爪','9lw':'冷静/AR爪','7lw':'精英级','btl':'冷静/AR爪',
+                '9tw':'巴特克的猛击','7tw':'底材','skr':'冷静/AR爪','9qr':'冷静/AR爪',
+                '7qr':'娜塔亚套','ob1':'电棒','ob6':'电棒','obb':'电棒','ob2':'电棒',
+                'ob7':'电棒','obc':'脾气','ob3':'电棒','ob8':'电棒','obd':'电棒',
+                'ob4':'电棒','ob9':'电棒','obe':'电棒','ob5':'电棒','oba':'眼球',
+                'obf':'死亡深度','amb':'底材','amc':'底材','amd':'精英级',
+                'ame':'精英级','ama':'泰坦的复仇','amf':'精英级','2ax':'底材','scy':'底材',
+                'gld':'金币'
+
+            }
+            
+
+            function formatItemToTableLine(item){
+                //对象转化到表格，如果已经屏蔽就勾选上屏蔽
+                let isChecked="";
+                //判断为空的简单方法
+                if (/^\s*$/g.test(item.enUS+item.zhCN+item.zhTW)){
+                    isChecked="checked";
+                }
+                let valuable='-';
+                if (valuableKeys[item.Key]!=null){
+                    valuable=valuableKeys[item.Key];
+                }
+                return "<tr>"
+                    +'<td><input type="checkbox"/ id="key_'+item.Key+'" '+isChecked+'/></td>'
+                    +"<td>"+D2TextToCell(item.zhTW)+"</td>"
+                    +"<td>"+D2TextToCell(item.zhCN)+"</td>"
+                    +"<td>"+D2TextToCell( item.enUS)+"</td>"
+                    +'<td id="Key">'+D2TextToCell (item.Key)+"</td>"
+                    +'<td>'+valuable+'</td>'
+                    +"</tr>";
+            }
+
+            function D2TextToCell(text){
+
+                let strBackLine= D2BackLineFormat(text);
+                return D2ColorToFont(strBackLine);
+            }
+            function D2ColorToFont(text){
+                let rst="";
+                let mcD2c = (""+text).match(/(ÿc[0-9;:\<\>\=@A-U]|^).[^ÿ]*(?=ÿc[0-9;:\<\>\=@A-U]|$)/g);
+                if ( mcD2c!=null){
+                    mcD2c.forEach(m=>{
+                    if (/ÿc[0-9;:\<\>\=@A-U]/g.test(m)){
+                        let cd=m.match(/ÿc[0-9;:\<\>\=@A-U]/g)[0];
+                        rst+=m.replace(cd,'<font color="'+tableColor[cd]+'">')+"</font>";
+                    }else{
+                            rst+=m;
+                        }
+                    })
+                    return rst;
+                }
+                return text;
+                
+            }
+            //暗黑2中文本\n换行，行序倒转
+            function D2BackLineFormat(text){
+                let lines = (""+text).split("\n");
+                let rst="";
+                if (lines.length>1){
+                    for(let i=lines.length-1;i>0;i--){
+                    rst+=lines[i]+"<br/>";
+                    }
+                };
+                rst+=lines[0];
+                return rst;
+            }
+            
+            function readCompNames(files){
+                $("#table").empty();
+                $("#msg").show();
+                $("#lineFilter").hide();            //包含过滤器的行显示
+                $("#floatBtnGen").hide();           //包含生成按钮的行显示
+                if (files.length){
+                    let file = files[0];
+                    if (/json/.test(file.type)){
+                        let reader= new FileReader();
+                        reader.onload= function(){
+                            $("#msg").hide();
+                            $("#table").append('<tr id="head"><th>屏蔽</th> <th>zhTW繁体中文</th> <th>zhCN简体中文</th> <th>enUS英文</th> <th>Key</th><th>价值信息</th></tr>');
+                            //去除双斜杠注释
+                            let sign= new RegExp("//.*","gm");
+                            let rmSign =this.result.replace(sign,"");
+                            //console.log(rmSign);
+                            names= JSON.parse(rmSign); //讲json转化为item列表
+                            //生成装备项目
+                            equipKeys.forEach(k=>{
+                                let item=names.find(i=>i.Key==k);
+                                if (item){
+                                    $("#table").append(formatItemToTableLine(item));
+                                }
+                            })
+                            otherKeys.forEach(k=>{
+                                let item=names.find(i=>i.Key==k);
+                                if (item){
+                                    $("#table").append(formatItemToTableLine(item));
+                                }
+                            })
+                            
+
+                            
+                            //$("#fileContent").append("<pre>"+this.result.replace("\n","<br/>")+"</pre>");
+                            $(":checkbox").change(function(){   //给选择框注册刷新颜色事件
+                                setTableColor();
+                            })
+                            $("#lineFilter").show();            //包含过滤器的行显示
+                            $("#floatBtnGenPlan").show();           //包含生成按钮的行显示
+                            setTableColor();    
+                        };
+                        reader.readAsText(file);
+                    }else{
+                        $("#msg").text("打开错误，目标不是一个json文件")
+                    }
+                    
+                }
+
+            }
+            //载入预制方案 
+            function loadBanPlan(plan){
+                $("#table tr:not(#head) input").removeAttr("checked");
+                let toCheckedKeys=[];
+                switch(plan){
+                    case "std":
+                        toCheckedKeys=planStdKeys;
+                        break;
+                    case "stdMana":
+                        toCheckedKeys=planStdManaKeys;
+                        break;
+                    case "none":
+                    default:
+                        break;
+                }
+                $("#table tr:not(#head)").each(function(){
+                    let key = $(this).children("#Key").text();
+                    if (toCheckedKeys.find(k=>key==k)){
+                        //console.log($(this).find("input[type='checkbox']").prop("checked"));
+                        $(this).find("input[type='checkbox']").prop("checked",true);
+                    }
+                })
+                setTableColor();
+            }
+
+            //按条件过滤表格
+            function filterTable(){
+                //隐藏所有表格
+                $("#table tr:not(#head)").hide();
+                if ($("#equipShow").is(":checked")){
+                    $("#table tr:not(#head)").each(function(){
+                        let key = $(this).children("#Key").text();
+                        if (equipKeys.find(k=>k==key)){
+                            $(this).show();
+                        }
+                    })
+                }
+                if ($("#otherShow").is(":checked")){
+                    $("#table tr:not(#head)").each(function(){
+                        let key = $(this).children("#Key").text();
+                        if (otherKeys.find(k=>k==key)){
+                            $(this).show();
+                        }
+                    })
+                }
+                //如果 关闭屏蔽项目 所有表格中可见条目中已经勾选的项要隐藏 
+                if (!$("#banShow").is(":checked")){
+                    $("#table tr:not(#head):visible").each(function(){
+                        if ($(this).find("input[type='checkbox']").is(":checked")){
+                            $(this).hide();
+                        }
+                    })
+                }
+                if (!$("#notBanShow").is(":checked")){
+                    $("#table tr:not(#head):visible").each(function(){
+                        if (!$(this).find("input[type='checkbox']").is(":checked")){
+                            $(this).hide();
+                        }
+                    })
+                }
+                let fstr= $("#textFilter").val();
+                $("#table tr:not(#head):visible").stop().hide().filter(":contains('"+fstr+"')").show();
+
+            }
+            
+
+            function setTableColor(){
+                $("#table tr:visible:even").css("background-color","#2C3539");//间隔颜色gunmetal
+                $("#table tr:visible:odd").css("background-color","black");
+                $("#table tr:visible").has("input:checked").css("background-color","darkred");
+            }
+
+            function genPlan(){
+                let planStr="";
+                $("table tr:not(#head)").has("input:checked").each(function(){
+                    planStr+=$(this).children("#Key").text()+';';
+                })
+                
+                $("#floatPlan #planStr").text(planStr);
+                $("#floatPlan").show();
+                 
+            }
+            function genJson(){
+                let json ="";
+                $("#floatJson").show();
+                $("#standBy").show();
+                let namesCopy = JSON.parse(JSON.stringify(names));
+                $("table tr:not(#head)").has("input:checked").each(function(){
+                    let key=$(this).children("#Key").text();
+                    //console.log("banKey:"+key);
+                    for(let i=0;i<namesCopy.length;i++){
+                        let n= namesCopy[i];
+                        if(n.Key==key){
+                            //console.log(n);
+                            n.enUS="";
+                            n.zhCN="";
+                            n.zhTW="";
+                            break;
+                        }
+                    }
+                })
+                json = JSON.stringify(namesCopy,null,2);
+                $("#floatJson #jsonStr").text(json);
+                $("#standBy").hide();
+            }
+
+            
+            $(document).ready(function(){
+                //注册文本框过滤器
+                $("#textFilter").keyup(function(){
+                    filterTable();
+                    setTableColor();
+                })
+                $("#lineFilter").hide();
+                $("#floatBtnGenPlan").hide();
+                //生成方案按钮事件
+                $("#btnGenPlan").click(()=>{
+                    genPlan();
+                })
+                //拷贝方案keys按钮（已经隐藏）
+                $("#floatPlan #btnCopy").click(()=>{
+                    let planStr = document.getElementById("planStr");
+                    planStr.select();
+                    document.execCommand("copy");
+                    alert("已复制");
+                })
+                //生成json按钮
+                $("#floatPlan #btnGenJson").click(()=>{
+                   
+                    genJson();
+                   
+                })
+                $("#floatPlan #btnCopy").hide(); //正式版隐藏了这个复制按钮防止误操作
+                $("#floatPlan").hide();
+                //复制最终json按钮
+                $("#floatJson #btnCopy").click(()=>{
+                    let jsonStr = document.getElementById("jsonStr");
+                    jsonStr.select();
+                    document.execCommand("copy");
+                    alert("已复制");
+                })
+                $("#floatJson").hide();
+                $("#standBy").hide();
+                //注册所有checkbox事件
+                $("#lineFilter input[type='checkbox']").change(()=>{
+                    filterTable();
+                    setTableColor();
+                })
+               
+                //预制方案下拉框事件
+                $("#plan").change(()=>{
+                    loadBanPlan($("#plan").val());
+                })
+               
+                
+
+                
+            }
+
+            );
+        </script>
+    </head>
+    <title>暗黑2重制版mod物品过滤编辑</title>
+    <body style="color: white;background-color: black;">
+        <h1>暗黑破坏神2重制版：地面物品软屏蔽编辑</h1><br/>
+        verson 0.3 2021/12/17
+        <hr/>
+        选择模板文件：<input type="file" onchange="readCompNames(this.files)"/><br/><br/>
+        *模板文件指包含完整物品名列表，未经修改的item-names.json文件<br/>
+        *例:默认位置为-游戏根目录\mods\MOD名称\MOD名称.mpq\data\local\lng\strings\item-names.json<br/>
+        *MOD的设置方法请参见上面的链接<br/>
+        *其他mpq文件已经封包的MOD,需要使用<a href="http://www.zezula.net/en/mpq/download.html" target="_blank" style="color: yellow;">mpqEditor</a>将mpq文件全部提取，并放入一个"mod名.mpq"的文件夹，替换同名mpq文件
+        <hr/>
+        <div id="msg"></div>
+
+        
+        <div id="lineFilter">
+            选择屏蔽方案&nbsp;
+            <select id ="plan">
+                <option value="none">开荒不屏蔽</option>
+                <option value="std">标准屏蔽</option>
+                <option value="stdMana">标准屏蔽+蓝回辨箭</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+             <input id="equipShow" type ="checkbox" checked/>显示基础物品&nbsp;&nbsp;&nbsp;&nbsp;
+             <input id="otherShow" type ="checkbox" checked/>显示杂物&nbsp;&nbsp;&nbsp;&nbsp;
+             <input id="banShow" type ="checkbox" checked/>显示已屏蔽&nbsp;&nbsp;&nbsp;&nbsp;
+             <input id="notBanShow" type ="checkbox" checked/>显示未屏蔽&nbsp;&nbsp;&nbsp;&nbsp;
+             条件筛选<input type="text" id="textFilter"/><br/><hr/>
+        </div>
+            <table id="table"></table>
+            <br/><br/><br/><br/><br/>
+        <div id="floatPlan" class="float" style="top:10%;left:10%;height:auto;width:20%;">
+            <button onclick="$('#floatPlan').hide()">[X]</button><br/>
+            屏蔽物品的暗黑2Key列表如下:<br/><br/>
+            <textarea id ="planStr" cols="20" rows="10" ></textarea><br/>
+            <br/>
+            <button id="btnCopy" type="button">复制</button>
+            <button id="btnGenJson" type="button" style="right: 0px;">生成json</button>
+        </div>
+        
+        <div id="floatBtnGenPlan" class ="float" style="bottom:0%;left: 0%;height: fit-content;width: 100%;padding: 10;">
+             &nbsp;&nbsp;&nbsp;&nbsp;<button type ="button" id="btnGenPlan" style="transform: scale(1.5);">生成方案</button>
+        </div>
+        <div id ="floatJson" class="float" style="top: 15%;left: 15%;height: fit-content;width: fit-content;">
+            <button onclick="$('#floatJson').hide()">[X]</button><br/>
+            生成的json如下，请按[复制]按钮复制文本，或者手动alt+a alt+c复制<br/>
+            然后用记事本打开文件 [游戏根目录]\mods\dfcn\dfcn.mpq\data\local\lng\strings\item-names.json<br/>
+            全选原有文本并删除，粘贴剪贴板中的json并保存文件，重启游戏应用屏蔽效果<br/>
+            *其他mod请替换dfcn至对应mod名<br/>
+            *由于重制版程序限制，被屏蔽的物品依旧在<font color="red">32最大物品显示限制</font>计数内，重要物品请使用dfcn等mod的光柱标记<br/>
+            <hr/>
+            <textarea id="jsonStr" rows="30" cols="80"></textarea><br/>
+            <hr/>
+            <button id="btnCopy" type="button">复制</button>
+        </div>
+        <div  id="standBy" class="float" style="top: 40%;left: 40%;"  >
+            &nbsp;正在生成，请稍后...
+        </div>
+
+        
+        
+    </body>
+</html>

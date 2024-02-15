@@ -1,0 +1,892 @@
+[
+  {
+    "id": 2583,
+    "Key": "The Humongous",
+    "zhCN": "暗黑四淫器之一，通常拿来屁事水经验"
+  },
+  {
+    "id": 2589,
+    "Key": "Knell Striker",
+    "zhCN": "这个也是丧钟？"
+  },
+  {
+    "id": 2595,
+    "Key": "The Generals Tan Do Li Ga",
+    "zhCN": "将军珠已成为过去"
+  },
+  {
+    "id": 2603,
+    "Key": "Azurewrath",
+    "zhCN": "俗称愤青，光刀的哥哥，皮叔三不掉之一，恭喜"
+  },
+  {
+    "id": 2624,
+    "Key": "Soul Harvest",
+    "zhCN": "名不副实，用它就被采集了"
+  },
+  {
+    "id": 2626,
+    "Key": "Woestave",
+    "zhCN": "别以为加了DRU的就是给他用的"
+  },
+  {
+    "id": 2635,
+    "Key": "Rimeraven",
+    "zhCN": "鸟弓就是它，战网小号升级必备，单机用途不大"
+  },
+  {
+    "id": 2638,
+    "Key": "Wizendraw",
+    "zhCN": "元素弓可拿此过渡"
+  },
+  {
+    "id": 2645,
+    "Key": "War Bonnet",
+    "zhCN": "20小帽子，收藏一个"
+  },
+  {
+    "id": 2646,
+    "Key": "Tarnhelm",
+    "zhCN": "前期50MF很实用"
+  },
+  {
+    "id": 2656,
+    "Key": "Twitchthroe",
+    "zhCN": "抽动甲，非资能卖。前期挺实用的装甲之一"
+  },
+  {
+    "id": 2660,
+    "Key": "Venomsward",
+    "zhCN": "穿上它百毒不侵...."
+  },
+  {
+    "id": 2665,
+    "Key": "Goldskin",
+    "zhCN": "非资里价值高"
+  },
+  {
+    "id": 2675,
+    "Key": "The Ward",
+    "zhCN": "看点高抗性，非资里常用"
+  },
+  {
+    "id": 2677,
+    "Key": "Bloodfist",
+    "zhCN": "PK用的多，安姐大把大把的掉"
+  },
+  {
+    "id": 2678,
+    "Key": "Chance Guards",
+    "zhCN": "0MF，纯冰MF或打钱蛮子标配"
+  },
+  {
+    "id": 2679,
+    "Key": "Magefist",
+    "zhCN": "暗黑仅有的两件加fcr手套之一，火系技能还可用于尸爆和小德"
+  },
+  {
+    "id": 2680,
+    "Key": "Frostburn",
+    "zhCN": "法力不够戴上它"
+  },
+  {
+    "id": 2681,
+    "Key": "Hotspur",
+    "zhCN": "怕火的穿"
+  },
+  {
+    "id": 2684,
+    "Key": "Goblin Toe",
+    "zhCN": "看点高CB"
+  },
+  {
+    "id": 2689,
+    "Key": "Goldwrap",
+    "zhCN": "打钱、MF穿"
+  },
+  {
+    "id": 2694,
+    "Key": "Nagelring",
+    "zhCN": "纯冰标配"
+  },
+  {
+    "id": 2695,
+    "Key": "Manald Heal",
+    "zhCN": "实在缺偷法的用它"
+  },
+  {
+    "id": 10911,
+    "Key": "Whichwild String",
+    "zhCN": "炮轰弓马武器，升级后使用"
+  },
+  {
+    "id": 21288,
+    "Key": "Butcher's Pupil",
+    "zhCN": "双热开荒常说的屠夫就是它。高ed值得升级"
+  },
+  {
+    "id": 21304,
+    "Key": "The Fetid Sprinkler",
+    "zhCN": "用途不大，很多新人出了都拿出来问"
+  },
+  {
+    "id": 21305,
+    "Key": "Hand of Blessed Light",
+    "zhCN": "天堂圣骑之光，biubiubiu"
+  },
+  {
+    "id": 21312,
+    "Key": "The Gavel of Pain",
+    "zhCN": "打钱蛮子常用"
+  },
+  {
+    "id": 21313,
+    "Key": "Bloodletter",
+    "zhCN": "破财剑"
+  },
+  {
+    "id": 21315,
+    "Key": "Hexfire",
+    "zhCN": "强化法师自用"
+  },
+  {
+    "id": 21316,
+    "Key": "Blade of Ali Baba",
+    "zhCN": "马云之刃，打钱常用，可镶2个20号"
+  },
+  {
+    "id": 21323,
+    "Key": "The Vile Husk",
+    "zhCN": "无形的留（kp利器！）给A5佣兵升级后使用，实际用的少"
+  },
+  {
+    "id": 21332,
+    "Key": "Kelpie Snare",
+    "zhCN": "俗称减速叉，巴尔专用振动棒"
+  },
+  {
+    "id": 21333,
+    "Key": "Soulfeast Tine",
+    "zhCN": "用途不大，好多新人出了都拿出来问"
+  },
+  {
+    "id": 21334,
+    "Key": "Hone Sundan",
+    "zhCN": "通常说的hsd就是它，注意无形升级后敏捷需求很高"
+  },
+  {
+    "id": 21339,
+    "Key": "Pierre Tombale Couant",
+    "zhCN": "被低估的一把武器，无形升级后实际输出不俗"
+  },
+  {
+    "id": 21341,
+    "Key": "Grim's Burning Dead",
+    "zhCN": "别以为加了NEC技能就是他用的"
+  },
+  {
+    "id": 21342,
+    "Key": "Ribcracker",
+    "zhCN": "暴力狼过渡武器，通常升级后使用"
+  },
+  {
+    "id": 21347,
+    "Key": "Kuko Shakaku",
+    "zhCN": "俗称日本弓，战网某些刷噩梦牛场升级的常用它"
+  },
+  {
+    "id": 21350,
+    "Key": "Godstrike Arch",
+    "zhCN": "用途不大，天堂拳技能毁了它"
+  },
+  {
+    "id": 21353,
+    "Key": "Buriza-Do Kyanon",
+    "zhCN": "俗称大炮。输出不俗，弓马常用弓"
+  },
+  {
+    "id": 21354,
+    "Key": "Vampiregaze",
+    "zhCN": "物免盔（wmk），一般给佣兵用，无形的更好"
+  },
+  {
+    "id": 21355,
+    "Key": "String of Ears",
+    "zhCN": "109物免腰带，有心结在它的用途不大了"
+  },
+  {
+    "id": 21356,
+    "Key": "Gorerider",
+    "zhCN": "cb鞋，肉搏角色利器"
+  },
+  {
+    "id": 21360,
+    "Key": "Guardian Angle",
+    "zhCN": "自用情况居多"
+  },
+  {
+    "id": 21361,
+    "Key": "Shaftstop",
+    "zhCN": "109物免甲（wmj），米山过渡可用"
+  },
+  {
+    "id": 21362,
+    "Key": "Skin of the Vipermagi",
+    "zhCN": "法术系角色好用，35r满防的可升级"
+  },
+  {
+    "id": 21364,
+    "Key": "Valkiry Wing",
+    "zhCN": "穷人亚马逊杀牛（kc）专用"
+  },
+  {
+    "id": 21365,
+    "Key": "Peasent Crown",
+    "zhCN": "京子常用，物理系也可过渡时使用"
+  },
+  {
+    "id": 21375,
+    "Key": "Ondal's Wisdom",
+    "zhCN": "俗称经验杖，战网混kb的人手一把，单机意义不大，收藏"
+  },
+  {
+    "id": 21380,
+    "Key": "Warshrike",
+    "zhCN": "无形的可能有人要（投掷型野蛮人）"
+  },
+  {
+    "id": 21387,
+    "Key": "Demonlimb",
+    "zhCN": "俗称烧火棍，近战AR不够时副手可带它强化"
+  },
+  {
+    "id": 21389,
+    "Key": "Tomb Reaver",
+    "zhCN": "俗称大妹子，狼德终极神兵。无形3孔的值得镶嵌33.满变至今无人打出"
+  },
+  {
+    "id": 21394,
+    "Key": "The Reedeemer",
+    "zhCN": "天堂的弟弟，通常拿来贴吧骗精用"
+  },
+  {
+    "id": 21398,
+    "Key": "Bonehew",
+    "zhCN": "破骨 Bonehew"
+  },
+  {
+    "id": 21399,
+    "Key": "Steelrend",
+    "zhCN": "20大，恭喜。收藏用，武学刺也能拿来用"
+  },
+  {
+    "id": 21402,
+    "Key": "Arioc's Needle",
+    "zhCN": "爱针就是它。无形4技能输出不俗，撑技能亦可"
+  },
+  {
+    "id": 21403,
+    "Key": "Shadowdancer",
+    "zhCN": "鹦鹉就是它，武学刺必备，20大之一"
+  },
+  {
+    "id": 21408,
+    "Key": "Runemaster",
+    "zhCN": "土豪玩物，无形5s的收藏一把即可"
+  },
+  {
+    "id": 21409,
+    "Key": "Deathcleaver",
+    "zhCN": "20大之一，恭喜。"
+  },
+  {
+    "id": 21410,
+    "Key": "Executioner's Justice",
+    "zhCN": "20大之一，收藏"
+  },
+  {
+    "id": 21412,
+    "Key": "Leviathan",
+    "zhCN": "110物免甲，米山过渡穿穿，多用于收藏，不要也行"
+  },
+  {
+    "id": 21417,
+    "Key": "Wisp",
+    "zhCN": "战网卖的贵，单机混王座有奇效"
+  },
+  {
+    "id": 21418,
+    "Key": "Gargoyle's Bite",
+    "zhCN": "20大之一，收藏"
+  },
+  {
+    "id": 21419,
+    "Key": "Lacerator",
+    "zhCN": "无形的或许有人要，还是很犀利的"
+  },
+  {
+    "id": 21420,
+    "Key": "Mang Song's Lesson",
+    "zhCN": "20大之一，好多人的怨念物，5全技能，恭喜"
+  },
+  {
+    "id": 21421,
+    "Key": "Viperfork",
+    "zhCN": "用途不大，好多新人出了都拿出来问"
+  },
+  {
+    "id": 21427,
+    "Key": "The Reaper's Toll",
+    "zhCN": "物理系破免必备，米山神兵之一，出了它赶紧拿来水经验"
+  },
+  {
+    "id": 21428,
+    "Key": "Spiritkeeper",
+    "zhCN": "收藏品，用途不大"
+  },
+  {
+    "id": 21429,
+    "Key": "Hellrack",
+    "zhCN": "不如大炮，没啥大用。可N"
+  },
+  {
+    "id": 21430,
+    "Key": "Alma Negra",
+    "zhCN": "名字好听，用途不大，可N"
+  },
+  {
+    "id": 21431,
+    "Key": "Darkforge Spawn",
+    "zhCN": "20大之一，收藏为主，有些毒招也拿它凑档"
+  },
+  {
+    "id": 21438,
+    "Key": "Ghostflame",
+    "zhCN": "20大之一，收藏"
+  },
+  {
+    "id": 21439,
+    "Key": "Shadowkiller",
+    "zhCN": "用途不大，可N"
+  },
+  {
+    "id": 21442,
+    "Key": "Griffon's Eye",
+    "zhCN": "四神器之一，电系练法必备，出了无形请自挂东南枝"
+  },
+  {
+    "id": 21444,
+    "Key": "Windhammer",
+    "zhCN": "用途不大，狼德过渡用用，可N"
+  },
+  {
+    "id": 21445,
+    "Key": "Thunderstroke",
+    "zhCN": "用途不大，可N，无形好变量的可留一把收藏"
+  },
+  {
+    "id": 21455,
+    "Key": "Headhunter's Glory",
+    "zhCN": "自己开发着用用，3s可自行diy"
+  },
+  {
+    "id": 21461,
+    "Key": "Earthshifter",
+    "zhCN": "20大之一，收藏"
+  },
+  {
+    "id": 21462,
+    "Key": "Nature's Peace",
+    "zhCN": "K尼拉塞克时候用的多，防止怪物复活的"
+  },
+  {
+    "id": 21464,
+    "Key": "Seraph's Hymn",
+    "zhCN": "收藏用，实际用途不大"
+  },
+  {
+    "id": 21466,
+    "Key": "Fleshripper",
+    "zhCN": "可拿来K6用"
+  },
+  {
+    "id": 21469,
+    "Key": "Horizon's Tornado",
+    "zhCN": "风结的弟弟，人品失败的产物"
+  },
+  {
+    "id": 21470,
+    "Key": "Nord's Tenderizer",
+    "zhCN": "用途不大，可N"
+  },
+  {
+    "id": 21473,
+    "Key": "Jadetalon",
+    "zhCN": "觉得缺抗的用用，实际用的不多"
+  },
+  {
+    "id": 21476,
+    "Key": "Cerebus",
+    "zhCN": "不如狗头，用途不大，可N或留个好的收藏"
+  },
+  {
+    "id": 21482,
+    "Key": "Stoneraven",
+    "zhCN": "玩长矛的亚马逊的人比较少"
+  },
+  {
+    "id": 21512,
+    "Key": "Wraithflight",
+    "zhCN": "很多人误认为它是20大，其实不是"
+  },
+  {
+    "id": 21516,
+    "Key": "Medusa's Gaze",
+    "zhCN": "名字吓人，实际没啥用，收藏"
+  },
+  {
+    "id": 21519,
+    "Key": "Rockstopper",
+    "zhCN": "开荒用用，小wmk，抗性挺高的"
+  },
+  {
+    "id": 21520,
+    "Key": "Stealskull",
+    "zhCN": "功能不少，佣兵用的时候多"
+  },
+  {
+    "id": 21522,
+    "Key": "Crown of Thieves",
+    "zhCN": "过渡期米山常用"
+  },
+  {
+    "id": 21523,
+    "Key": "Blackhorn's Face",
+    "zhCN": "减速吸电盔，常给京子用"
+  },
+  {
+    "id": 21529,
+    "Key": "Duriel's Shell",
+    "zhCN": "通常说的虫壳就是它，自用或者米山用均可，无形可升级"
+  },
+  {
+    "id": 21530,
+    "Key": "Skullder's Ire",
+    "zhCN": "俗称IRE，凑高MF必备，无形价格高"
+  },
+  {
+    "id": 21531,
+    "Key": "Toothrow",
+    "zhCN": "OW甲，野蛮人用的多"
+  },
+  {
+    "id": 21533,
+    "Key": "Black Hades",
+    "zhCN": "过渡米山穿穿，无形的可升级镶嵌恶魔珠，不过实际使用它的很少"
+  },
+  {
+    "id": 21535,
+    "Key": "Que-hegan's Wisdom",
+    "zhCN": "开荒用用还是不错的"
+  },
+  {
+    "id": 21541,
+    "Key": "Gravepalm",
+    "zhCN": "暗金四淫器之一，通常拿来屁事水经验混脸熟"
+  },
+  {
+    "id": 21543,
+    "Key": "Hellmouth",
+    "zhCN": "吸火，杀瘸子（3c）不怕火"
+  },
+  {
+    "id": 21544,
+    "Key": "Infernostride",
+    "zhCN": "打钱蛮子标配"
+  },
+  {
+    "id": 21545,
+    "Key": "Waterwalk",
+    "zhCN": "65生命的大家抢著要"
+  },
+  {
+    "id": 21546,
+    "Key": "Silkweave",
+    "zhCN": "标马刷牛常用，电法缺蓝也有用它的"
+  },
+  {
+    "id": 21547,
+    "Key": "Wartraveler",
+    "zhCN": "战旅就是它，纯冰MF或者弓马必备"
+  },
+  {
+    "id": 21548,
+    "Key": "Razortail",
+    "zhCN": "俗称穿刺腰，亚马逊标配"
+  },
+  {
+    "id": 21551,
+    "Key": "Thudergod's Vigor",
+    "zhCN": "吸电腰带，混王座常带它"
+  },
+  {
+    "id": 21552,
+    "Key": "Lidless Wall",
+    "zhCN": "开荒用用，有时候也搭配cta在副手使用，"
+  },
+  {
+    "id": 21555,
+    "Key": "Boneflame",
+    "zhCN": "收藏用，实际价值不大"
+  },
+  {
+    "id": 21556,
+    "Key": "Steelpillar",
+    "zhCN": "20大之一，收藏品"
+  },
+  {
+    "id": 21557,
+    "Key": "Nightwing's Veil",
+    "zhCN": "冰头，纯冰法师提升伤害必选"
+  },
+  {
+    "id": 21559,
+    "Key": "Crown of Ages",
+    "zhCN": "四神器之一，多用于战网pk，单机多用于与死神搭配"
+  },
+  {
+    "id": 21560,
+    "Key": "Andariel's Visage",
+    "zhCN": "米山终配头之一，弓马也能用。出了就赶紧到吧里水经验"
+  },
+  {
+    "id": 21562,
+    "Key": "Dragonscale",
+    "zhCN": "收藏品，实际价值不大"
+  },
+  {
+    "id": 21563,
+    "Key": "Steel Carapice",
+    "zhCN": "收藏品，实际价值不大"
+  },
+  {
+    "id": 21565,
+    "Key": "Rainbow Facet",
+    "zhCN": "遇见彩虹，吃定彩虹(ˇˍˇ）"
+  },
+  {
+    "id": 21566,
+    "Key": "Ravenlore",
+    "zhCN": "收藏品，使用价值不大"
+  },
+  {
+    "id": 21567,
+    "Key": "Boneshade",
+    "zhCN": "全jp的收藏"
+  },
+  {
+    "id": 21571,
+    "Key": "Fathom",
+    "zhCN": "四神器之一，常说的次元就是它。纯冰提升伤害必选，但是地位比较尴尬。"
+  },
+  {
+    "id": 21572,
+    "Key": "Wolfhowl",
+    "zhCN": "野蛮狼娱乐玩法核心装备"
+  },
+  {
+    "id": 21573,
+    "Key": "Spirit Ward",
+    "zhCN": "收藏用，实际价值不大"
+  },
+  {
+    "id": 21574,
+    "Key": "Kira's Guardian",
+    "zhCN": "抗性上不去可以考虑用它"
+  },
+  {
+    "id": 21576,
+    "Key": "Gheed's Fortune",
+    "zhCN": "ugc，身上只能放一个"
+  },
+  {
+    "id": 21578,
+    "Key": "Stormlash",
+    "zhCN": "圣骑K6常用武器之一"
+  },
+  {
+    "id": 21579,
+    "Key": "Halaberd's Reign",
+    "zhCN": "战网肉BO没有好头之前可过渡用，单机收藏为主 "
+  },
+  {
+    "id": 21583,
+    "Key": "Dracul's Grasp",
+    "zhCN": "K6或狼德常用，其他情况不如安置。"
+  },
+  {
+    "id": 21585,
+    "Key": "Templar's Might",
+    "zhCN": "俗称鸟乙，秀人品求诅咒装B失败的产物，默哀"
+  },
+  {
+    "id": 21586,
+    "Key": "Eschuta's temper",
+    "zhCN": "脾气就是它，电法火法标配"
+  },
+  {
+    "id": 21587,
+    "Key": "Firelizard's Talons",
+    "zhCN": "用途不大，收藏"
+  },
+  {
+    "id": 21588,
+    "Key": "Sandstorm Trek",
+    "zhCN": "无形更好，用途挺多，日用之一"
+  },
+  {
+    "id": 21589,
+    "Key": "Marrowwalk",
+    "zhCN": "NEC标配鞋"
+  },
+  {
+    "id": 21590,
+    "Key": "Heaven's Light",
+    "zhCN": "三技能两孔的，杀6boss的利器"
+  },
+  {
+    "id": 21592,
+    "Key": "Arachnid Mesh",
+    "zhCN": "俗称技能腰，20fcr无出其右，法系标配"
+  },
+  {
+    "id": 21593,
+    "Key": "Nosferatu's Coil",
+    "zhCN": "极少数弓马特殊情况凑档用，一般收藏一个即可"
+  },
+  {
+    "id": 21595,
+    "Key": "Verdugo's Hearty Cord",
+    "zhCN": "心结就是它，物理系标配"
+  },
+  {
+    "id": 21597,
+    "Key": "Carrion Wind",
+    "zhCN": "自用为主"
+  },
+  {
+    "id": 21598,
+    "Key": "Giantskull",
+    "zhCN": "两孔的可留下玩儿"
+  },
+  {
+    "id": 21599,
+    "Key": "Ironward",
+    "zhCN": "龙铁就是它，20大之一，收藏或者用于K6"
+  },
+  {
+    "id": 21610,
+    "Key": "Raven Frost",
+    "zhCN": "物理系角色戒指一般都要带一个它，实用戒指"
+  },
+  {
+    "id": 21611,
+    "Key": "Dwarf Star",
+    "zhCN": "吸火用，打钱戒指"
+  },
+  {
+    "id": 21613,
+    "Key": "Mara's Kaleidoscope",
+    "zhCN": "法系链万金油，不缺fcr的都带它"
+  },
+  {
+    "id": 21614,
+    "Key": "Crescent Moon",
+    "zhCN": "收藏，用途不大"
+  },
+  {
+    "id": 21615,
+    "Key": "The Rising Sun",
+    "zhCN": "收藏，实际用途不大"
+  },
+  {
+    "id": 21617,
+    "Key": "Bul Katho's Wedding Band",
+    "zhCN": "俗称婚戒，两种暗金加技能戒指之一"
+  },
+  {
+    "id": 21619,
+    "Key": "Metalgrid",
+    "zhCN": "收藏为主，实用价值不大"
+  },
+  {
+    "id": 21621,
+    "Key": "Stormshield",
+    "zhCN": "物免盾就是它，格挡型练法首选盾之一"
+  },
+  {
+    "id": 21623,
+    "Key": "Ormus' Robes",
+    "zhCN": "15增伤合适技能的可用，其他可N"
+  },
+  {
+    "id": 21624,
+    "Key": "Arkaine's Valor",
+    "zhCN": "穷人牛场标马常用，使用等级较高，无形也可给米山撑光环用"
+  },
+  {
+    "id": 21625,
+    "Key": "The Gladiator's Bane",
+    "zhCN": "米山常用，无形的比较少见。"
+  },
+  {
+    "id": 21627,
+    "Key": "Harlequin Crest",
+    "zhCN": "俗称军帽，绿帽子，很多角色适用，好多新人出了它都来水经验"
+  },
+  {
+    "id": 21631,
+    "Key": "Que-Hegan's Wisdon",
+    "zhCN": "过渡用用，很多新人出了都拿出来问。"
+  },
+  {
+    "id": 21632,
+    "Key": "Guardian Angel",
+    "zhCN": "圣骑过渡用用，很多新人出了都拿出来问"
+  },
+  {
+    "id": 21635,
+    "Key": "Windforce",
+    "zhCN": "WF就是它，暗金第一弓，20大实用典范之一，恭喜"
+  },
+  {
+    "id": 21638,
+    "Key": "Widowmaker",
+    "zhCN": "俗称GA弓，qhsorPK常用，单机收藏为主"
+  },
+  {
+    "id": 21639,
+    "Key": "Stormspire",
+    "zhCN": "20大之一。收藏品"
+  },
+  {
+    "id": 21641,
+    "Key": "Ethereal Edge",
+    "zhCN": "真的没用"
+  },
+  {
+    "id": 21643,
+    "Key": "The Grandfather",
+    "zhCN": "20大之一，收藏品"
+  },
+  {
+    "id": 21644,
+    "Key": "Doombringer",
+    "zhCN": "跟祖父一样收藏"
+  },
+  {
+    "id": 21645,
+    "Key": "Tyrael's Might",
+    "zhCN": "暗黑第一难出的暗金装备，人品象征，好多人的怨念物，还不快水一发"
+  },
+  {
+    "id": 21646,
+    "Key": "Lightsabre",
+    "zhCN": "常说的光刀就是它，双热过渡武器"
+  },
+  {
+    "id": 21647,
+    "Key": "The Cranium Basher",
+    "zhCN": "20大之一，收藏品"
+  },
+  {
+    "id": 21648,
+    "Key": "Schaefer's Hammer",
+    "zhCN": "它不是20大"
+  },
+  {
+    "id": 21650,
+    "Key": "Deaths's Web",
+    "zhCN": "四神器之一，决定毒NEC练法的装备，恭喜"
+  },
+  {
+    "id": 21662,
+    "Key": "Trang-Oul's Wing",
+    "zhCN": "绿死人头，三件套毒招常用"
+  },
+  {
+    "id": 21665,
+    "Key": "Trang-Oul's Claws",
+    "zhCN": "暗黑仅有的两件加fcr的手套之一"
+  },
+  {
+    "id": 21666,
+    "Key": "Trang-Oul's Girth",
+    "zhCN": "此套装中比较难出的，三件套搭配毒NEC常用"
+  },
+  {
+    "id": 21673,
+    "Key": "Griswolds's Redemption",
+    "zhCN": "20大之一，恭喜"
+  },
+  {
+    "id": 21674,
+    "Key": "Griswold's Honor",
+    "zhCN": "20大之一，冲击丁可用，或者收藏，恭喜"
+  },
+  {
+    "id": 21676,
+    "Key": "Griswold's Valor",
+    "zhCN": "广义20大之一，难出的装备，收藏"
+  },
+  {
+    "id": 21697,
+    "Key": "Aldur's Stony Gaze",
+    "zhCN": "黑德的机会又来了"
+  },
+  {
+    "id": 21714,
+    "Key": "Hwanin's Refuge",
+    "zhCN": "有些纯炸可用此招铁魔娱乐"
+  },
+  {
+    "id": 21717,
+    "Key": "Telling of Beads",
+    "zhCN": "最难出的绿链，无实际用途"
+  },
+  {
+    "id": 21735,
+    "Key": "Titan's Revenge",
+    "zhCN": "俗称TT，标马必备，无形价格更高"
+  },
+  {
+    "id": 21737,
+    "Key": "Lycander's Aim",
+    "zhCN": "麻雀虽小五脏俱全，升级后可用"
+  },
+  {
+    "id": 21743,
+    "Key": "Annihilus",
+    "zhCN": "它叫usc，推倒黑毛后的战利品（作死）"
+  },
+  {
+    "id": 21744,
+    "Key": "Arreat's Face",
+    "zhCN": "俗称飞机头，蛮子专用头。"
+  },
+  {
+    "id": 21750,
+    "Key": "Jalal's Mane",
+    "zhCN": "俗称狗头，变形德常用"
+  },
+  {
+    "id": 21755,
+    "Key": "Homunculus",
+    "zhCN": "俗称尿壶，NEC常用它，升级后也可走格挡练法"
+  },
+  {
+    "id": 21758,
+    "Key": "Herald of Zakarum",
+    "zhCN": "饰金盾就是它，双热标配，好多人的怨念，恭喜"
+  }
+]
