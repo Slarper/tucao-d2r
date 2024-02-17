@@ -1,42 +1,76 @@
-use std::{collections::HashMap, fs};
+use std::{clone, collections::HashMap, fs, vec};
 
 use serde::{Deserialize, Serialize};
 use json_comments::StripComments;
 
 use regex::Regex;
 
+fn main( ) {
+    let json = fs::read_to_string("assets/value/value.json").unwrap();
+    let valuableKeys: HashMap<&str, String> = serde_json::from_str(&json).unwrap();
 
-fn main() {
-    // merge_overlap(
-    //     "assets/item-names - tucao.json",
-    //     "assets/item-names - tucao - tina.json",
-    //     "assets/item-names - tucao - merge.json")
+    let valuableKeys = {
+        let mut vk = HashMap::new();
+        for (k,v) in valuableKeys {
+            if v == "精英级" {
 
-    infuse_tucao(
-        "assets/tucao/item-names - tucao - merge.json", 
-        "assets/Dusk/item-names - basic filter.json", 
-        "work/item-names -basic -tucao.json");
+            } else {
+                vk.insert(k, v);
+            }
+        }
+        vk
+    };
 
-    // extract_ignore(
-    //     "assets/Dusk/item-names - standard filter.json", 
-    //     "assets/ignore/item-names -i.json"
-    // )
 
-    infuse_ignore(
-        "assets/ignore/item-names -i.json",
-        "work/item-names -basic -tucao.json",
-        "work/item-names -std -tucao.json"
-    );
+    let mut a = read("assets/Dusk/item-names - no filter.json");
+    
+
+
+
+    for i in &mut a{
+        match valuableKeys.get(&i.Key as &str) {
+            Some(value) => {
+                if !is_empty(i.enUS.clone()) {
+                    let zhcn = i.zhCN.clone().unwrap();
+                    i.zhCN = Some(add_tail(zhcn, value.clone()));
+
+                    let zhcn = i.enUS.clone().unwrap();
+                    i.enUS = Some(add_tail(zhcn, value.clone()));
+
+                    let zhcn = i.zhTW.clone().unwrap();
+                    i.zhTW = Some(add_tail(zhcn, value.clone()));
+                }
+                
+            }
+            None => {}
+
+            
+        }
+    }
+
+
+
+    save("assets/target/item-names -valued.json", a);
+
+    infuse_tucao("assets/tucao/item-names - tucao - merge.json","assets/target/item-names -valued.json", 
+    "assets/target/item-names -valued -tucao.json")
 }
 
-// fn main(){
-//     b2a("work/names1.json", "work/names-tucao.json", "work/names-o.json");
-//     b2a("work/runes1.json", "work/runes-tucao.json", "work/runes-o.json");
+fn add_tail(a:String, b:String) -> String {
+    let mut a = parse_name(a);
+    a.push(b);
+    let a = encode_name(a);
+    a
+}
+
+// fn main ( ){
+//     infuse_tucao("assets/tucao/item-names - tucao - merge.json", 
+//     "assets/Dusk/item-names - basic filter -potion.json", 
+//     "work/item-names -tucao -basic -potion.json")
 // }
 
-// fn main(){
-
-//     let src = read("work/item-names - tina.json");
+// fn main3() {
+//     let src = read("work/item-runes -tina.json");
 
 //     let mut tucaos = vec![];
 
@@ -61,9 +95,34 @@ fn main() {
 
 //     }
 
-//     save("assets/item-names - tucao - tina.json", tucaos)
-//     // extract_tucao("work/item-names - tina.json", "assets/item-names - tucao - tina.json");
+//     save("assets/tucao/item-runes -tucao -tina.json", tucaos)
 // }
+
+
+// fn main() {
+//     // merge_overlap(
+//     //     "assets/item-names - tucao.json",
+//     //     "assets/item-names - tucao - tina.json",
+//     //     "assets/item-names - tucao - merge.json")
+
+//     infuse_tucao(
+//         "assets/tucao/item-names - tucao - merge.json", 
+//         "assets/Dusk/item-names - basic filter.json", 
+//         "work/item-names -basic -tucao.json");
+
+//     // extract_ignore(
+//     //     "assets/Dusk/item-names - standard filter.json", 
+//     //     "assets/ignore/item-names -i.json"
+//     // )
+
+//     infuse_ignore(
+//         "assets/ignore/item-names -i.json",
+//         "work/item-names -basic -tucao.json",
+//         "work/item-names -std -tucao.json"
+//     );
+// }
+
+
 
 
 fn infuse_tucao(tucao:&str, names:&str, o:&str) {
@@ -188,8 +247,8 @@ fn b2a(a:&str, b:&str, c:&str) {
         match get_tu_cao(&item.zhCN, 1) {
             Some(tu_cao) => {
                 let a_item = a.get_mut(&item.id).unwrap();
-                a_item.zhCN = vec![tu_cao.clone(), a_item.zhCN.clone()].join("\n");
-                a_item.enUS = vec![tu_cao.clone(), a_item.enUS.clone()].join("\n");
+                a_item.zhCN = vec![tu_cao.clone(), a_item.zhCN.clone()].join("/n");
+                a_item.enUS = vec![tu_cao.clone(), a_item.enUS.clone()].join("/n");
 
             },
             None => {}
@@ -219,7 +278,7 @@ struct Foo {
 
 // pos : 1
 fn get_tu_cao (name: &str, pos:usize) -> Option<String> {
-    let n = name.split("\n").collect::<Vec<&str>>();
+    let n = name.split("/n").collect::<Vec<&str>>();
     if n.len() == 3 {
 
         // strip blizzard string color code (ÿc_)
@@ -297,10 +356,10 @@ fn read(src:&str) -> Vec<ItemOption> {
     src
 }
 
-fn save(tgt:&str, tucaos: Vec<ItemOption>) {
-    let tucaos = serde_json::to_string_pretty(&tucaos).unwrap();
+fn save(tgt:&str, itemlist: Vec<ItemOption>) {
+    let itemlist = serde_json::to_string_pretty(&itemlist).unwrap();
 
-    fs::write(tgt, tucaos).unwrap();
+    fs::write(tgt, itemlist).expect(tgt);
 }
 
 impl Default for ItemOption {
